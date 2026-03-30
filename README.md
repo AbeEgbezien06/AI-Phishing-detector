@@ -127,16 +127,19 @@ python app.py
 
 Open browser:
 http://127.0.0.1:5000
+
 🖥️ Features
 ✉️ 1. Manual Email Check
 Paste email text
 Click Check Email
 Get result instantly
+
 📥 2. Scan Inbox
 Click Scan Inbox
 App connects to Gmail
 Fetches emails
 Displays predictions
+
 Example Output
 🚨 Phishing: "Your account has been suspended..."
 ✅ Legitimate: "Meeting scheduled for tomorrow..."
