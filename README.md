@@ -8,6 +8,7 @@ The AI Phishing Detector is a web-based application that uses Machine Learning t
 🚨 Phishing (malicious)
 ✅ Legitimate (safe)
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8d91723e-c695-40ca-b16d-3427f3add5da" />
 
 How It Works (Simple Flow)
 Email → Clean Text → Vectorizer → ML Model → Result
