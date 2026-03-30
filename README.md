@@ -17,30 +17,20 @@ Clean the text (remove noise)
 Convert text → numbers (Vectorizer)
 ML model predicts phishing or not
 
-📁 Project Structure
-AI-Phishing-Detector/
-│
-├── app.py              # Main Flask app (backend + UI)
-├── train.py            # Train the ML model
-├── predict.py          # Test prediction manually
-├── utils.py            # Text cleaning functions
-├── email_reader.py     # Fetch emails from Gmail
-│
-├── model.pkl           # Trained ML model
-├── vectorizer.pkl      # Text vectorizer
-├── emails.csv          # Training dataset
-│
-├── templates/
-│   └── index.html      # Frontend UI
-│
-├── static/
-│   ├── style.css       # Styling
-│   └── script.js       # Handles button actions
-│
-├── .env                # Email credentials (secure)
-├── requirements.txt    # Dependencies
-└── data/
-    └── raw_emails.csv  # Optional logs
+## Folder Structure
+- `app.py` - The main web server file
+- `email_reader.py` - Handles secure connections to Gmail
+- `predict.py` - Runs predictions from the terminal
+- `train.py` - Teaches the machine learning model
+- `utils.py` - Prepares and cleans email text
+- `requirements.txt` - Lists required external tools
+- `static/` - Files sent straight to the user's browser
+  - `script.js` - Makes the website interactive
+  - `style.css` - Makes the website look cool
+- `templates/` - HTML structure files
+  - `index.html` - The main application page
+- `model.pkl` & `vectorizer.pkl` - Saved "brain" data from the trained AI
+- `emails.csv` - The original data used to teach the algorithm (requires user generation)
 
 ## Technology Stack
 - **Python**: The core programming language used to build the logic, connect backend systems, and power the machine learning model.
