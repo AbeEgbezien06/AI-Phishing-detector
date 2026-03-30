@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHISHING//DETECTOR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="sys-header">
+        <h1>[AI_PHISHING_DETECTOR]</h1>
+        <div class="status-indicator">SYSTEM: <span class="blink">ONLINE</span></div>
+    </header>
+
+    <main class="grid-layout">
+        <section class="panel input-panel">
+            <div class="panel-header">> MANUAL_ANALYSIS</div>
+            <form method="POST" class="brutal-form">
+                <textarea id="email-input" name="email" placeholder="INSERT_PAYLOAD..." required></textarea>
+                <button type="submit" class="brutal-btn">EXECUTE_CHECK</button>
+            </form>
+            
+            {% if result %}
+            <div class="result-box {% if result == 'Phishing' %}alert-phishing{% else %}alert-legit{% endif %}">
+                <div class="result-label">ANALYSIS_OUTPUT:</div>
+                <div class="result-text">> {{ result | upper }}</div>
+            </div>
+            {% endif %}
+        </section>
+
+        <section class="panel scan-panel">
+            <div class="panel-header">> INBOX_MONITOR</div>
+            <button onclick="scanInbox()" id="scan-btn" class="brutal-btn w-full">INITIATE_REMOTE_SCAN</button>
+            
+            <div id="scan-terminal">
+                <div id="scan-results">
+                    <div class="terminal-line">> WAITING_FOR_INPUT_</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
