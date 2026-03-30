@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# ML Models
+*.pkl
+emails.csv
+
+# Agent Directories & Configs
+.tmp/
+.env
+credentials.json
+token.json
