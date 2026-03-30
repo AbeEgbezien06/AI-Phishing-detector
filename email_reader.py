@@ -9,12 +9,38 @@ EMAIL = os.getenv("EMAIL")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
 
 def fetch_emails():
-    mail = imaplib.IMAP4_SSL("imap.gmail.com")
-    mail.login(EMAIL, APP_PASSWORD)
-    mail.select("inbox")
-
-    status, messages = mail.search(None, "UNSEEN")
     emails = []
+
+    try:
+        print("Connecting to Gmail...")
+        mail = imaplib.IMAP4_SSL("imap.gmail.com")
+
+        print("Logging in...")
+        mail.login(EMAIL, PASSWORD)
+
+        print("Selecting inbox...")
+        mail.select("inbox")
+
+        status, messages = mail.search(None, "ALL")
+
+        mail_ids = messages[0].split()
+
+        for i in mail_ids[-5:]:
+            status, msg_data = mail.fetch(i, "(RFC822)")
+
+            for response_part in msg_data:
+                if isinstance(response_part, tuple):
+                    msg = email.message_from_bytes(response_part[1])
+                    subject = msg["Subject"]
+                    emails.append(subject)
+
+        mail.logout()
+
+    except Exception as e:
+        print("🔥 FULL ERROR:", str(e))
+        return ["ERROR_CONNECTION_FAILED"]
+
+    return emails
 
     for num in messages[0].split():
         _, msg_data = mail.fetch(num, "(RFC822)")
